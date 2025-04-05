@@ -65,10 +65,8 @@ public class RegistrationTests extends BaseTest {
         registrationPage.inputEmailField(email);
         registrationPage.inputPasswordField(password);
         registrationPage.clickRegistrationButton();
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        //wait.until(ExpectedConditions.urlToBe("https://stellarburgers.nomoreparties.site/login"));
         waitForPageLoad(USER_ACCOUNT_PAGE_URL);
-        Assert.assertEquals(driver.getCurrentUrl(), USER_ACCOUNT_PAGE_URL; //проверяем переход на страницу "Личный кабинет"
+        Assert.assertEquals(driver.getCurrentUrl(), USER_ACCOUNT_PAGE_URL); //проверяем переход на страницу "Личный кабинет"
 
     }
 }
