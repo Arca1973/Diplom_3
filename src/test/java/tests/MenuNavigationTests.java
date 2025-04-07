@@ -7,14 +7,14 @@ import org.junit.Test;
 import pages.BurgerConstructorPage;
 import pages.LoginPage;
 import pages.RegestrationPage;
-import pages.RestorePasswordPage;
+import pages.ForgotPasswordPage;
 
 
 public class MenuNavigationTests extends BaseTest {
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
-    private RestorePasswordPage restorePasswordPage;
+    private ForgotPasswordPage restorePasswordPage;
     private RegestrationPage registrationPage;
 
     @Before
@@ -23,7 +23,7 @@ public class MenuNavigationTests extends BaseTest {
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
-        restorePasswordPage = new RestorePasswordPage(driver);
+        restorePasswordPage = new ForgotPasswordPage(driver);
         registrationPage= new RegestrationPage(driver);
     }
 

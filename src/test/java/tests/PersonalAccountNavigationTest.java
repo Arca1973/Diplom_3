@@ -14,7 +14,7 @@ public class PersonalAccountNavigationTest extends BaseTest {
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
-    private RestorePasswordPage restorePasswordPage;
+    private ForgotPasswordPage restorePasswordPage;
     private RegestrationPage registrationPage;
     private PersonalAccountPage personalAccountPage;
 
@@ -24,7 +24,7 @@ public class PersonalAccountNavigationTest extends BaseTest {
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
-        restorePasswordPage = new RestorePasswordPage(driver);
+        restorePasswordPage = new ForgotPasswordPage(driver);
         registrationPage= new RegestrationPage(driver);
         personalAccountPage = new PersonalAccountPage(driver);
         // Генерация уникальных имени, электронной почты и пароля

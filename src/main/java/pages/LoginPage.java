@@ -40,4 +40,10 @@ public class LoginPage {
     public void inputPasswordField(String passwordValue) {
         driver.findElement(inputPasswordField).sendKeys(passwordValue);
     }
+    public void fillLoginForm(String email, String password) {
+        inputEmailField(email);
+        inputPasswordField(password);
+        clickEnterButton();
+    }
 }
+

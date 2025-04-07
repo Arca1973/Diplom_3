@@ -7,20 +7,18 @@ import org.junit.Before;
 import org.junit.Test;
 import pages.BurgerConstructorPage;
 import pages.RegestrationPage;
-import pages.RestorePasswordPage;
+import pages.ForgotPasswordPage;
 import pages.LoginPage;
-
 
 public class LoginTest extends BaseTest {
 
     private String name;
     private String email;
     private String password;
-
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
-    private RestorePasswordPage restorePasswordPage;
+    private ForgotPasswordPage forgotPasswordPage;
     private RegestrationPage registrationPage;
 
     @Before
@@ -29,7 +27,7 @@ public class LoginTest extends BaseTest {
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
-        restorePasswordPage = new RestorePasswordPage(driver);
+        forgotPasswordPage = new ForgotPasswordPage(driver);
         registrationPage= new RegestrationPage(driver);
         // Генерация уникальных имени, электронной почты и пароля
         name = "ИВАН" + (int) (Math.random() * 1000000);
@@ -40,11 +38,33 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void Test() {
+    public void MainPageLoginButtonTest() {
         burgerConstructorPage.clickSingInButton();
-        loginPage.inputEmailField(email);
-        loginPage.inputPasswordField(password);
-        loginPage.clickEnterButton();
+        loginPage.fillLoginForm(email,password);
+        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
+    }
+
+    @Test
+    public void UserAccountLoginButtonTest() {
+        burgerConstructorPage.clickAccountLink();
+        loginPage.fillLoginForm(email,password);
+        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
+    }
+
+    @Test
+    public void RegistrationFormLoginButtonTest() {
+        registrationPage.clickEnterLink();
+        loginPage.fillLoginForm(email,password);
+        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
+    }
+
+    @Test
+    public void  ForgotPasswordFormLoginButtonTest() {
+        forgotPasswordPage.clickEnterLink();
+        loginPage.fillLoginForm(email,password);
         waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
     }

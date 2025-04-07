@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import pages.BurgerConstructorPage;
 import pages.RegestrationPage;
-import pages.RestorePasswordPage;
+import pages.ForgotPasswordPage;
 import pages.LoginPage;
 
 
@@ -18,7 +18,7 @@ public class RegistrationTests extends BaseTest {
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
-    private RestorePasswordPage restorePasswordPage;
+    private ForgotPasswordPage restorePasswordPage;
     private RegestrationPage registrationPage;
 
     @Before
@@ -27,7 +27,7 @@ public class RegistrationTests extends BaseTest {
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
-        restorePasswordPage = new RestorePasswordPage(driver);
+        restorePasswordPage = new ForgotPasswordPage(driver);
         registrationPage= new RegestrationPage(driver);
         // Генерация уникальных имени, электронной почты и пароля
         name = "ИВАН" + (int) (Math.random() * 1000000);
