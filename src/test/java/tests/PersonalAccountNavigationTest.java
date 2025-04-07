@@ -8,11 +8,9 @@ import org.junit.Test;
 import pages.*;
 
 public class PersonalAccountNavigationTest extends BaseTest {
-
     private String name;
     private String email;
     private String password;
-
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
@@ -23,19 +21,16 @@ public class PersonalAccountNavigationTest extends BaseTest {
     @Before
     public void setUp() {
         super.setUp();
-
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
         restorePasswordPage = new RestorePasswordPage(driver);
         registrationPage= new RegestrationPage(driver);
         personalAccountPage = new PersonalAccountPage(driver);
-
-                // Генерация уникальных имени, электронной почты и пароля
+        // Генерация уникальных имени, электронной почты и пароля
         name = "ИВАН" + (int) (Math.random() * 1000000);
         email = name + "@yandex.ru";
         password = "1234" + (int) (Math.random() * 1000000);
-
 
         new UserApiMethod().createUser(email, password, name); // Создаем пользователя
         burgerConstructorPage.clickSingInButton(); //Переход на страницу авторизации

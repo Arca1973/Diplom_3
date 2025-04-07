@@ -16,11 +16,9 @@ public class BurgerConstructorPage {
     private final By bunsLink = By.xpath("//span[contains(text(), 'Булки')]");//ссылка Булки
     private final By saucesLink = By.xpath("//span[contains(text(), 'Соусы')]");//ссылка Соусы
     private final By toppingsLink = By.xpath("//span[contains(text(), 'Начинки')]");//ссылка Начинки
-
     private final By h2BunsLink = By.xpath(" //h2[contains(text(),'Булки')]");//заголовок Булки
     private final By h2SaucessLink = By.xpath("//h2[contains(text(), 'Соусы')]");//заголовок Соусы
     private final By h2ToppingsLink = By.xpath("//h2[contains(text(), 'Начинки')]");//заголовок Начинки
-
 
     public void clickSingInButton() {
         driver.findElement(singInButton).click();

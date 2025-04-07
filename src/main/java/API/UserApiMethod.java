@@ -3,9 +3,7 @@ package API;
 import com.google.gson.Gson;
 //import io.qameta.allure.Step;
 import io.restassured.response.Response;
-
 import static API.ApiConstants.*;
-
 
 public class UserApiMethod extends BaseApiMethod {
     private static final Gson gson = new Gson(); // Используем Gson для сериализации

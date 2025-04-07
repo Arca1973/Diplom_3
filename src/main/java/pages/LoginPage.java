@@ -17,7 +17,6 @@ public class LoginPage {
     private final By inputEmailField = By.xpath("//label[text()='Email']/following-sibling::input"); // поле ввода Email на странице Авторизация
     private final By inputPasswordField = By.xpath("//label[text()='Пароль']/following-sibling::input"); // поле ввода Password на странице странице Авторизация // поле ввода Password
 
-
     public void clickConstructorLink() {
         driver.findElement(constructorLink).click();
     }

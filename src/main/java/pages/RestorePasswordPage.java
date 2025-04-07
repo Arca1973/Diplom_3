@@ -2,9 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class RestorePasswordPage {
     public RestorePasswordPage(WebDriver driver) {
@@ -28,5 +25,4 @@ public class RestorePasswordPage {
     public void inputEmailField(String emailValue) {
         driver.findElement(inputEmailField).sendKeys(emailValue);
     }
-
 }

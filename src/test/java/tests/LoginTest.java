@@ -26,21 +26,17 @@ public class LoginTest extends BaseTest {
     @Before
     public void setUp() {
         super.setUp();
-
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
         restorePasswordPage = new RestorePasswordPage(driver);
         registrationPage= new RegestrationPage(driver);
-
         // Генерация уникальных имени, электронной почты и пароля
         name = "ИВАН" + (int) (Math.random() * 1000000);
         email = name + "@yandex.ru";
         password = "1234" + (int) (Math.random() * 1000000);
 
-
         new UserApiMethod().createUser(email, password, name); //Создаем пользователя
-
     }
 
     @Test
@@ -51,6 +47,5 @@ public class LoginTest extends BaseTest {
         loginPage.clickEnterButton();
         waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
-
     }
 }

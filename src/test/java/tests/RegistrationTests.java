@@ -11,7 +11,6 @@ import pages.LoginPage;
 
 
 public class RegistrationTests extends BaseTest {
-
     private String name;
     private String email;
     private String password;
@@ -25,13 +24,11 @@ public class RegistrationTests extends BaseTest {
     @Before
     public void setUp() {
         super.setUp();
-
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
         restorePasswordPage = new RestorePasswordPage(driver);
         registrationPage= new RegestrationPage(driver);
-
         // Генерация уникальных имени, электронной почты и пароля
         name = "ИВАН" + (int) (Math.random() * 1000000);
         email = name + "@yandex.ru";
@@ -40,7 +37,6 @@ public class RegistrationTests extends BaseTest {
     }
     @Test
     public void UnSuccessfulUserRegistrationWithWrongPasswordTest() {
-
         burgerConstructorPage.clickSingInButton();
         loginPage.clickRegistrationLink();
         registrationPage.inputNameField(name);
@@ -48,12 +44,10 @@ public class RegistrationTests extends BaseTest {
         registrationPage.inputPasswordField(wrong_password);
         registrationPage.clickRegistrationButton();
         Assert.assertTrue("Неверный пароль", registrationPage.isWrongPasswordMessageDisplayed());
-
     }
 
     @Test
     public void SuccessfulUserRegistrationTest() {
-
         burgerConstructorPage.clickSingInButton();
         loginPage.clickRegistrationLink();
         registrationPage.inputNameField(name);
@@ -62,6 +56,5 @@ public class RegistrationTests extends BaseTest {
         registrationPage.clickRegistrationButton();
         waitForPageLoad(LOGIN_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), LOGIN_PAGE_URL); //проверяем переход на страницу авторизации
-
     }
 }

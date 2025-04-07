@@ -1,12 +1,10 @@
 package API;
 
-
 public class UserModel {// Класс для хранения данных пользователя
     public static class UserData {
         private String email;
         private String password;
         private String name;
-
         public String getEmail() {
             return email;
         }

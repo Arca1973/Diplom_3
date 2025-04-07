@@ -5,11 +5,8 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-
 import static API.ApiConstants.BASE_URL;
 import static io.restassured.RestAssured.given;
-
-
 
 public abstract class BaseApiMethod {
     private static RequestSpecification requestSpecification = new RequestSpecBuilder()

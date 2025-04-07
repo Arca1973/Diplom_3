@@ -9,7 +9,6 @@ public class RegestrationPage {
     }
 
     private final WebDriver driver;
-
     // Локатор
     private final By enterLink = By.xpath("//*[contains(text(), 'Войти')]"); //ссылка «Войти» на странице Регистрация
     private final By registrationButton = By.xpath("//button[contains(text(), 'Зарегистрироваться')]"); //кнопка «Зарегистрироваться» на странице Регистрация
@@ -41,5 +40,4 @@ public class RegestrationPage {
     public boolean isWrongPasswordMessageDisplayed() {
         return driver.findElement(wrongPasswordMessage).isDisplayed();
     }
-
 }

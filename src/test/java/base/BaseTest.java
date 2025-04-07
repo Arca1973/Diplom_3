@@ -6,11 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.WebDriverFactory;
-
 import java.time.Duration;
 
 public class BaseTest {
-
 
     // Переменные с URL страниц
     protected final String USER_ACCOUNT_PAGE_URL = "https://stellarburgers.nomoreparties.site/account/profile";
