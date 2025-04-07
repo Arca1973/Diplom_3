@@ -1,5 +1,6 @@
 package tests;
 
+import API.UserApiMethod;
 import base.BaseTest;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,12 +11,12 @@ import pages.RestorePasswordPage;
 import pages.LoginPage;
 
 
-public class RegistrationTests extends BaseTest {
+public class LoginTest extends BaseTest {
 
     private String name;
     private String email;
     private String password;
-    private String wrong_password;
+
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
@@ -36,32 +37,20 @@ public class RegistrationTests extends BaseTest {
         name = "ИВАН" + (int) (Math.random() * 1000000);
         email = name + "@yandex.ru";
         password = "1234" + (int) (Math.random() * 1000000);
-        wrong_password ="12345";
-    }
-    @Test
-    public void UnSuccessfulUserRegistrationWithWrongPasswordTest() {
 
-        burgerConstructorPage.clickSingInButton();
-        loginPage.clickRegistrationLink();
-        registrationPage.inputNameField(name);
-        registrationPage.inputEmailField(email);
-        registrationPage.inputPasswordField(wrong_password);
-        registrationPage.clickRegistrationButton();
-        Assert.assertTrue("Неверный пароль", registrationPage.isWrongPasswordMessageDisplayed());
+
+        new UserApiMethod().createUser(email, password, name);
 
     }
 
     @Test
-    public void SuccessfulUserRegistrationTest() {
-
+    public void Test() {
         burgerConstructorPage.clickSingInButton();
-        loginPage.clickRegistrationLink();
-        registrationPage.inputNameField(name);
-        registrationPage.inputEmailField(email);
-        registrationPage.inputPasswordField(password);
-        registrationPage.clickRegistrationButton();
-        waitForPageLoad(LOGIN_PAGE_URL);
-        Assert.assertEquals(driver.getCurrentUrl(), LOGIN_PAGE_URL); //проверяем переход на страницу авторизации
+        loginPage.inputEmailField(email);
+        loginPage.inputPasswordField(password);
+        loginPage.clickEnterButton();
+        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Личный кабинет"
 
     }
 }

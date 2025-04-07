@@ -13,10 +13,11 @@ public class BaseTest {
 
 
     // Переменные с URL страниц
-    protected final String USER_ACCOUNT_PAGE_URL = "https://stellarburgers.nomoreparties.site/login";
+    protected final String USER_ACCOUNT_PAGE_URL = "https://stellarburgers.nomoreparties.site/profile";
+    protected final String LOGIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/login";
     protected final String REGISTRATION_PAGE_URL = "https://stellarburgers.nomoreparties.site/register";
     protected final String RESTORE_PASSWORD_PAGE_URL = "https://stellarburgers.nomoreparties.site/forgot-password";
-    protected final String BIURGER_CONSTRUCTOR_PAGE_URL = "https://stellarburgers.nomoreparties.site/login";
+    protected final String BIURGER_CONSTRUCTOR_PAGE_URL = "https://stellarburgers.nomoreparties.site/";
     protected WebDriver driver;
 
     protected void waitForPageLoad(String link){

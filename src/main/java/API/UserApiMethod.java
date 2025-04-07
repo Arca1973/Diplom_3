@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 //import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
-import static API.ApiConstants.ApiConstants.*;
+import static API.ApiConstants.*;
 
 
 public class UserApiMethod extends BaseApiMethod {
@@ -27,7 +27,7 @@ public class UserApiMethod extends BaseApiMethod {
     public Response editUserData(String accessToken, String email, String password, String name) {
         UserModel.UserData courierData = new UserModel.UserData(email, password, name);
         String body = gson.toJson(courierData);
-        return sendPatchRequest( USER_INFO_ENDPOINT, accessToken, body);
+        return sendPatchRequest(USER_INFO_ENDPOINT, accessToken, body);
     }
     // @Step("Запрос на удаление пользоваеля")
     public String deleteUser(String accessToken) {

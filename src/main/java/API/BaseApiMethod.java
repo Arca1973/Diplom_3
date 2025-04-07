@@ -6,7 +6,7 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import static API.ApiConstants.ApiConstants.BASE_URL;
+import static API.ApiConstants.BASE_URL;
 import static io.restassured.RestAssured.given;
 
 
