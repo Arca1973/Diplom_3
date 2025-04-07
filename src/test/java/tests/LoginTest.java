@@ -39,7 +39,7 @@ public class LoginTest extends BaseTest {
         password = "1234" + (int) (Math.random() * 1000000);
 
 
-        new UserApiMethod().createUser(email, password, name);
+        new UserApiMethod().createUser(email, password, name); //Создаем пользователя
 
     }
 
@@ -50,7 +50,7 @@ public class LoginTest extends BaseTest {
         loginPage.inputPasswordField(password);
         loginPage.clickEnterButton();
         waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
-        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Личный кабинет"
+        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
 
     }
 }

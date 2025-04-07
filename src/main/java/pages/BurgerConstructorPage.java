@@ -14,7 +14,7 @@ public class BurgerConstructorPage {
     private final WebDriver driver;
     // Локатор
     private final By singInButton = By.xpath("//button[text()='Войти в аккаунт']"); //кнопка «Войти в аккаунт» на главной,
-    private final By accountLink = By.xpath("//a[contains(@class, 'AppHeader_header__linkText__3q_va ml-2') and contains(text(), 'Личный Кабинет')]"); //ссылка «Личный кабинет» на главной,
+    private final By accountLink = By.xpath("//*[contains(text(), 'Личный Кабинет')]"); //ссылка «Личный кабинет» на главной,
     private final By bunsLink = By.xpath("//span[contains(text(), 'Булки')]");//ссылка Булки
     private final By saucesLink = By.xpath("//span[contains(text(), 'Соусы')]");//ссылка Соусы
     private final By toppingsLink = By.xpath("//span[contains(text(), 'Начинки')]");//ссылка Начинки
