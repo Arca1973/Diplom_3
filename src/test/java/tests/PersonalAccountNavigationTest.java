@@ -34,9 +34,7 @@ public class PersonalAccountNavigationTest extends BaseTest {
 
         new UserApiMethod().createUser(email, password, name); // Создаем пользователя
         burgerConstructorPage.clickSingInButton(); //Переход на страницу авторизации
-        loginPage.inputEmailField(email);//вводим email для авторизации
-        loginPage.inputPasswordField(password);//вводим пароль для авторизации
-        loginPage.clickEnterButton();//нажимаем Войти для авторизации
+        loginPage.fillLoginForm(email,password);
         waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL); //ожидамем возврат на старницу конструкотора
             }
 
