@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import pages.*;
 
-
 public class PersonalAccountNavigationTest extends BaseTest {
 
     private String name;
