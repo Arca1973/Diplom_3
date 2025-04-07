@@ -2,6 +2,8 @@ package tests;
 
 import API.UserApiMethod;
 import base.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,8 +16,6 @@ public class PersonalAccountNavigationTest extends BaseTest {
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
-    private ForgotPasswordPage restorePasswordPage;
-    private RegestrationPage registrationPage;
     private PersonalAccountPage personalAccountPage;
 
     @Before
@@ -24,8 +24,6 @@ public class PersonalAccountNavigationTest extends BaseTest {
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
-        restorePasswordPage = new ForgotPasswordPage(driver);
-        registrationPage= new RegestrationPage(driver);
         personalAccountPage = new PersonalAccountPage(driver);
         // Генерация уникальных имени, электронной почты и пароля
         name = "ИВАН" + (int) (Math.random() * 1000000);
@@ -39,6 +37,9 @@ public class PersonalAccountNavigationTest extends BaseTest {
             }
 
     @Test
+    @DisplayName("Проверяем переход на страницу Личный кабинет с главной страницы после нажатия кнопки Личный кабинет")
+    @Description("нажимаем кнопку Личный кабинет, проверяем что происходит переход на страницу Личный кабинет")
+
     public void ClickPersonalAccountTest() {
         burgerConstructorPage.clickAccountLink();
         waitForPageLoad(USER_ACCOUNT_PAGE_URL);
@@ -46,6 +47,8 @@ public class PersonalAccountNavigationTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверяем переход на страницу Конструктор из Личного кабинета после нажатия кнопки Конструктор")
+    @Description("нажимаем кнопку Конструктор, проверяем что происходит переход на страницу Конструктор")
     public void ClickConstructorTest() {
         burgerConstructorPage.clickAccountLink();
         waitForPageLoad(USER_ACCOUNT_PAGE_URL);
@@ -55,6 +58,8 @@ public class PersonalAccountNavigationTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверяем переход на страницу Конструктор из Личного кабинета  после нажатия логотипа Stellar Burgers")
+    @Description("нажимаем логотип Stellar Burgers, проверяем что происходит переход на страницу Конструктор")
     public void ClickLogoTest() {
         burgerConstructorPage.clickAccountLink();
         waitForPageLoad(USER_ACCOUNT_PAGE_URL);
@@ -64,6 +69,9 @@ public class PersonalAccountNavigationTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверяем переход на страницу Авторизации из Личного кабинета после нажатия кнопки Выйти")
+    @Description("нажимаем кнопку Выйти, проверяем что происходит переход на страницу Авторизации")
+
     public void ClickExitTest() {
         burgerConstructorPage.clickAccountLink();
         waitForPageLoad(USER_ACCOUNT_PAGE_URL);

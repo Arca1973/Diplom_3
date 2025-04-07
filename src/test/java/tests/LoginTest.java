@@ -2,6 +2,9 @@ package tests;
 
 import API.UserApiMethod;
 import base.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,6 +41,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверяем переход на страницу авторизации с главной страницы после нажатия кнопки Войти в аккаунт")
+    @Description("Создаем нового клиента, нажимаем кнопку Войти в аккаунт, запоняем поля формы авторизации email и  password, нажимаем кнопку Войти, проверяем что после успешной авторизации происходит переход на страницу конструктора бургеров")
     public void MainPageLoginButtonTest() {
         burgerConstructorPage.clickSingInButton();
         loginPage.fillLoginForm(email,password);
@@ -46,6 +51,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверяем переход на страницу авторизации с главной страницы после нажатия кнопки Личный Кабинет")
+    @Description("Создаем нового клиента, нажимаем кнопку Личный Кабинет, запоняем поля формы авторизации email и  password, нажимаем кнопку Войти, проверяем что после успешной авторизации происходит переход на страницу конструктора бургеров")
     public void UserAccountLoginButtonTest() {
         burgerConstructorPage.clickAccountLink();
         loginPage.fillLoginForm(email,password);
@@ -54,6 +61,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверяем переход на страницу авторизации с страницы регистрации после нажатия кнопки Войти")
+    @Description("Создаем нового клиента, нажимаем кнопку Войти, запоняем поля формы авторизации email и  password, нажимаем кнопку Войти, проверяем что после успешной авторизации происходит переход на страницу конструктора бургеров")
     public void RegistrationFormLoginButtonTest() {
         registrationPage.clickEnterLink();
         loginPage.fillLoginForm(email,password);
@@ -62,10 +71,14 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Проверяем переход на страницу авторизации с страницы восстановления пароля после нажатия кнопки Войти")
+    @Description("Создаем нового клиента, нажимаем кнопку Войти, запоняем поля формы авторизации email и  password, нажимаем кнопку Войти, проверяем что после успешной авторизации происходит переход на страницу конструктора бургеров")
     public void  ForgotPasswordFormLoginButtonTest() {
         forgotPasswordPage.clickEnterLink();
         loginPage.fillLoginForm(email,password);
         waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
     }
+
+
 }
