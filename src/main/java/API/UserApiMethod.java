@@ -1,14 +1,14 @@
 package API;
 
 import com.google.gson.Gson;
-//import io.qameta.allure.Step;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import static API.ApiConstants.*;
 
 public class UserApiMethod extends BaseApiMethod {
     private static final Gson gson = new Gson(); // Используем Gson для сериализации
 
-   // @Step("Запрос на создание пользоваеля")
+   @Step("Запрос на создание пользоваеля")
     public Response createUser(String email, String password, String name) {
         UserModel.UserData courierData = new UserModel.UserData(email, password, name);
         String body = gson.toJson(courierData);

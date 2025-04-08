@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,26 +18,32 @@ public class RegestrationPage {
     private final By inputPasswordField = By.xpath("//label[text()='Пароль']/following-sibling::input"); // поле ввода Password на странице Регистрация
     private final By wrongPasswordMessage = By.xpath("//p[text()='Некорректный пароль']"); //сообщение 'Некорректный пароль'
 
+    @Step("Нажимаем Войти")
     public void clickEnterLink() {
         driver.findElement(enterLink).click();
     }
 
+    @Step("Нажимаем Зарегистрироваться")
     public void clickRegistrationButton() {
         driver.findElement(registrationButton).click();
     }
 
+    @Step("Вводим name")
     public void inputNameField(String nameValue) {
         driver.findElement(inputNameField).sendKeys(nameValue);
     }
 
+    @Step("Вводим email")
     public void inputEmailField(String emailValue) {
         driver.findElement(inputEmailField).sendKeys(emailValue);
     }
 
+    @Step("Вводим password")
     public void inputPasswordField(String PasswordValue) {
         driver.findElement(inputPasswordField).sendKeys(PasswordValue);
     }
 
+    @Step("Проверяем что появилось сообщение Некорректный пароль")
     public boolean isWrongPasswordMessageDisplayed() {
         return driver.findElement(wrongPasswordMessage).isDisplayed();
     }

@@ -1,5 +1,6 @@
 package base;
 
+import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -19,12 +20,14 @@ public class BaseTest {
     protected final String BIURGER_CONSTRUCTOR_PAGE_URL = "https://stellarburgers.nomoreparties.site/";
     protected WebDriver driver;
 
+    @Step("Ожидаем загрузки страницы link")
     protected void waitForPageLoad(String link){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.urlToBe(link));
     }
 
     @Before
+    @Step("Выбираем броузер")
     public void setUp() {
         // По умолчанию используем Chrome, но можно передать параметр через Maven
         String browser = System.getProperty("browser", "firefox");
@@ -34,6 +37,7 @@ public class BaseTest {
     }
 
     @After
+    @Step("Закрываем броузер")
     public void tearDown() {
         if (driver != null) {
             driver.quit();
