@@ -20,7 +20,6 @@ public class RegistrationTests extends BaseTest {
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
-    private ForgotPasswordPage restorePasswordPage;
     private RegestrationPage registrationPage;
 
     @Before
@@ -29,7 +28,6 @@ public class RegistrationTests extends BaseTest {
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
-        restorePasswordPage = new ForgotPasswordPage(driver);
         registrationPage= new RegestrationPage(driver);
         // Генерация уникальных имени, электронной почты и пароля
         name = "ИВАН" + (int) (Math.random() * 1000000);
