@@ -1,14 +1,15 @@
 package tests;
 
+import API.UserApiMethod;
 import base.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import pages.BurgerConstructorPage;
 import pages.RegestrationPage;
-import pages.ForgotPasswordPage;
 import pages.LoginPage;
 
 
@@ -49,7 +50,7 @@ public class RegistrationTests extends BaseTest {
     }
 
     @Test
-    @DisplayName("Проверяем возможность регистрации нового пользователя при вооде валидных данных")
+    @DisplayName("Проверяем возможность регистрации нового пользователя при вводе валидных данных")
     @Description("Нажимаем кнопку Войти в аккаунт, Нажимаем кнопку Регистрация, запоняем поля формы регистраци name, email и password - валидными значениями,  нажимаем кнопку Регистрация, проверяем что после успешной регистрации происходит переход на страницу конструктора бургеров")
 
     public void SuccessfulUserRegistrationTest() {
@@ -61,5 +62,7 @@ public class RegistrationTests extends BaseTest {
         registrationPage.clickRegistrationButton();
         waitForPageLoad(LOGIN_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), LOGIN_PAGE_URL); //проверяем переход на страницу авторизации
+        new UserApiMethod().killUser(email, password, name);
     }
+
 }

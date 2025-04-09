@@ -4,6 +4,7 @@ import API.UserApiMethod;
 import base.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +18,7 @@ public class LoginTest extends BaseTest {
     private String name;
     private String email;
     private String password;
+    private String accessToken;
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
@@ -36,7 +38,7 @@ public class LoginTest extends BaseTest {
         email = name + "@yandex.ru";
         password = "1234" + (int) (Math.random() * 1000000);
 
-        new UserApiMethod().createUser(email, password, name); //Создаем пользователя
+        accessToken = new UserApiMethod().createUser(email, password, name); //Создаем пользователя
     }
 
     @Test
@@ -79,5 +81,8 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
     }
 
-
+//  @After
+//   public void tearDown() {
+//        new UserApiMethod().deleteUser(accessToken);
+ // }
 }

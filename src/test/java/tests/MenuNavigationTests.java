@@ -7,33 +7,24 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import pages.BurgerConstructorPage;
-import pages.LoginPage;
-import pages.RegestrationPage;
-import pages.ForgotPasswordPage;
 
 
 public class MenuNavigationTests extends BaseTest {
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
-    private LoginPage loginPage;
-    private ForgotPasswordPage restorePasswordPage;
-    private RegestrationPage registrationPage;
 
     @Before
     public void setUp() {
         super.setUp();
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
-        loginPage = new LoginPage(driver);
-        restorePasswordPage = new ForgotPasswordPage(driver);
-        registrationPage= new RegestrationPage(driver);
     }
 
     @Test
     @DisplayName("Проверяем что содержимое окна с ингридиентами прокручивается до пункта с соусами после нажатия элемента Соусы")
     @Description("Нажимаем элемент Соусы, проверяем что в окне виден список Соусы")
 
-    public void SaucessMenuNavigationTest () {
+    public void SaucesMenuNavigationTest() {
         burgerConstructorPage.clickSaucesLink();
         Assert.assertTrue(burgerConstructorPage.isH2SaucessDisplayed());
     }
