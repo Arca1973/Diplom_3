@@ -4,7 +4,6 @@ import API.UserApiMethod;
 import base.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

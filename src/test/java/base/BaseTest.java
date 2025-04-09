@@ -4,7 +4,6 @@ import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.WebDriverFactory;
@@ -30,7 +29,7 @@ public class BaseTest {
     @Step("Выбираем броузер")
     public void setUp() {
         // По умолчанию используем Chrome, но можно передать параметр через Maven
-        String browser = System.getProperty("browser", "firefox");
+        String browser = System.getProperty("browser", "yandex");
         driver = WebDriverFactory.createDriver(browser);
         driver.manage().window().maximize();
         driver.get("https://stellarburgers.nomoreparties.site/");// URL тестового сервиса
