@@ -81,8 +81,8 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
     }
 
-//  @After
-//   public void tearDown() {
-//        new UserApiMethod().deleteUser(accessToken);
- // }
+ @After
+public void aftereach() {
+new UserApiMethod().deleteUser(accessToken);
+    }
 }

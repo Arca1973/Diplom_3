@@ -2,6 +2,7 @@ package base;
 
 import io.qameta.allure.Step;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,7 +16,7 @@ public class BaseTest {
     protected final String USER_ACCOUNT_PAGE_URL = "https://stellarburgers.nomoreparties.site/account/profile";
     protected final String LOGIN_PAGE_URL = "https://stellarburgers.nomoreparties.site/login";
     protected final String BURGER_CONSTRUCTOR_PAGE_URL = "https://stellarburgers.nomoreparties.site/";
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
     @Step("Ожидаем загрузки страницы link")
     protected void waitForPageLoad(String link){

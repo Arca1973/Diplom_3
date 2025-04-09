@@ -4,6 +4,7 @@ import API.UserApiMethod;
 import base.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +14,7 @@ public class PersonalAccountNavigationTest extends BaseTest {
     private String name;
     private String email;
     private String password;
+    private String accessToken;
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
@@ -78,5 +80,9 @@ public class PersonalAccountNavigationTest extends BaseTest {
         personalAccountPage.clickExitButton();
         waitForPageLoad(LOGIN_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), LOGIN_PAGE_URL); //проверяем переход на страницу "Личный кабинет"
+    }
+    @After
+    public void aftereach() {
+        new UserApiMethod().deleteUser(accessToken);
     }
 }
