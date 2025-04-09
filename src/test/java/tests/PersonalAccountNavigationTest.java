@@ -33,7 +33,7 @@ public class PersonalAccountNavigationTest extends BaseTest {
         new UserApiMethod().createUser(email, password, name); // Создаем пользователя
         burgerConstructorPage.clickSingInButton(); //Переход на страницу авторизации
         loginPage.fillLoginForm(email,password);
-        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL); //ожидамем возврат на старницу конструкотора
+        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL); //ожидамем возврат на старницу конструкотора
             }
 
     @Test
@@ -53,8 +53,8 @@ public class PersonalAccountNavigationTest extends BaseTest {
         burgerConstructorPage.clickAccountLink();
         waitForPageLoad(USER_ACCOUNT_PAGE_URL);
         personalAccountPage.clickConstructorLink();
-        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
-        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "КОНСТРУКТОР"
+        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "КОНСТРУКТОР"
     }
 
     @Test
@@ -64,8 +64,8 @@ public class PersonalAccountNavigationTest extends BaseTest {
         burgerConstructorPage.clickAccountLink();
         waitForPageLoad(USER_ACCOUNT_PAGE_URL);
         personalAccountPage.clickStellarBurgersLogo();
-        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
-        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "КОНСТРУКТОР"
+        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "КОНСТРУКТОР"
     }
 
     @Test

@@ -45,8 +45,8 @@ public class LoginTest extends BaseTest {
     public void MainPageLoginButtonTest() {
         burgerConstructorPage.clickSingInButton();
         loginPage.fillLoginForm(email,password);
-        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
-        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
+        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
     }
 
     @Test
@@ -55,8 +55,8 @@ public class LoginTest extends BaseTest {
     public void UserAccountLoginButtonTest() {
         burgerConstructorPage.clickAccountLink();
         loginPage.fillLoginForm(email,password);
-        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
-        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
+        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
     }
 
     @Test
@@ -65,8 +65,8 @@ public class LoginTest extends BaseTest {
     public void RegistrationFormLoginButtonTest() {
         registrationPage.clickEnterLink();
         loginPage.fillLoginForm(email,password);
-        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
-        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
+        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
     }
 
     @Test
@@ -75,8 +75,8 @@ public class LoginTest extends BaseTest {
     public void  ForgotPasswordFormLoginButtonTest() {
         forgotPasswordPage.clickEnterLink();
         loginPage.fillLoginForm(email,password);
-        waitForPageLoad(BIURGER_CONSTRUCTOR_PAGE_URL);
-        Assert.assertEquals(driver.getCurrentUrl(), BIURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
+        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
+        Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "Конструктор бургеров"
     }
 
 

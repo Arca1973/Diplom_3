@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
 public class WebDriverFactory {
     static String yandex_driver_path = "/usr/local/bin/yandexdriver";
     @Step("Выбираем броузер")

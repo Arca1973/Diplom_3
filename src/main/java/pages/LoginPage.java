@@ -14,7 +14,6 @@ public class LoginPage {
     private final By constructorLink = By.xpath("//a[contains(@class, 'AppHeader_header_link_3D_hX') and contains(text(), 'Конструктор')]"); //кнопка «Конструктор» на странице Авторизация
     private final By enterLink = By.xpath("//*[contains(text(), 'Войти')]"); //кнопка «Войти» на странице Авторизация,
     private static final By registrationLink = By.xpath("//*[contains(text(), 'Зарегистрироваться')]");//ссылка «Зарегистрироваться» на странице Авторизация
-    private final By restorePasswordLink = By.xpath("//a[contains(@class, 'Auth_link_1f0l') and contains(text(), 'Восстановить пароль')]"); //ссылка «Восстановить пароль» в личном кабинете
     private final By inputEmailField = By.xpath("//label[text()='Email']/following-sibling::input"); // поле ввода Email на странице Авторизация
     private final By inputPasswordField = By.xpath("//label[text()='Пароль']/following-sibling::input"); // поле ввода Password на странице странице Авторизация // поле ввода Password
 
@@ -30,10 +29,6 @@ public class LoginPage {
     @Step("Нажимаем Зарегистрироваться")
     public void clickRegistrationLink() {
         driver.findElement(registrationLink).click();
-    }
-    @Step("Нажимаем Восстановить пароль")
-    public void clickRestorePasswordLink() {
-        driver.findElement(restorePasswordLink).click();
     }
     @Step("Вводим Email")
     public void  inputEmailField(String emailValue) {

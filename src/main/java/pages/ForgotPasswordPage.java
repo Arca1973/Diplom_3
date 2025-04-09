@@ -11,17 +11,11 @@ public class ForgotPasswordPage {
     private final WebDriver driver;
     // Локатор
     private final By enterLink = By.xpath("//*[contains(text(), 'Войти')]"); //ссылка «Войти» на странице Востановление пароля
-    private final By restoreButton = By.xpath("//button[contains(@class, 'button button_33q20 button_type_primary_107Bx button_button_size_medium_3xIAa') and contains(text(), 'Восстановить')]"); //кнопка «Восстановить» на странице Востановление пароля
-    private final By inputEmailField = By.xpath("//input[@class='text input_textfield text_type_main-default' and @type='text']"); // поле ввода Email на странице Востановление пароля
+   private final By inputEmailField = By.xpath("//input[@class='text input_textfield text_type_main-default' and @type='text']"); // поле ввода Email на странице Востановление пароля
 
     @Step("Нажимаем Войти")
     public void clickEnterLink() {
         driver.findElement(enterLink).click();
-    }
-
-    @Step("Нажимаем Восстановить")
-    public void clickRestoreButton() {
-        driver.findElement(restoreButton).click();
     }
 
     @Step("Вводим email")
