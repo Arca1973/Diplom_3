@@ -29,13 +29,11 @@ public class UserApiMethod extends BaseApiMethod {
         String body = gson.toJson(userData);
         return sendPatchRequest(USER_INFO_ENDPOINT, accessToken, body);
     }
-    // @Step("Запрос на удаление пользоваеля")
-    public String deleteUser(String accessToken) {
+    @Step("Запрос на удаление пользоваеля")
+    public void deleteUser(String accessToken) {
         if (accessToken!=null) {
             sendDeleteRequest(USER_INFO_ENDPOINT, accessToken);
-            return null;
         }
-        return accessToken;
     }
     @Step("Запрос на логин и удаление пользователя")
     public void killUser(String email, String password, String name) {
