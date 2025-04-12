@@ -1,4 +1,4 @@
-package API;
+package com.stellarburgers.api;
 
 public class GetFieldsByResponse {
 

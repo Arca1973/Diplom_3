@@ -1,8 +1,12 @@
-package pages;
+package com.stellarburgers.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage {
 
@@ -10,18 +14,15 @@ public class LoginPage {
         this.driver = driver;
     }
     private final WebDriver driver;
-    // Локатор
-    private final By constructorLink = By.xpath("//a[contains(@class, 'AppHeader_header_link_3D_hX') and contains(text(), 'Конструктор')]"); //кнопка «Конструктор» на странице Авторизация
+    // Локаторы
     private final By enterLink = By.xpath("//*[contains(text(), 'Войти')]"); //кнопка «Войти» на странице Авторизация,
     private static final By registrationLink = By.xpath("//*[contains(text(), 'Зарегистрироваться')]");//ссылка «Зарегистрироваться» на странице Авторизация
     private final By inputEmailField = By.xpath("//label[text()='Email']/following-sibling::input"); // поле ввода Email на странице Авторизация
     private final By inputPasswordField = By.xpath("//label[text()='Пароль']/following-sibling::input"); // поле ввода Password на странице странице Авторизация // поле ввода Password
 
 
-    @Step("Нажимаем Конструктор")
-    public void clickConstructorLink() {
-        driver.findElement(constructorLink).click();
-    }
+
+
     @Step("Нажимаем Войти")
     public void clickEnterButton() {
         driver.findElement(enterLink).click();
@@ -46,5 +47,11 @@ public class LoginPage {
         inputPasswordField(password);
         clickEnterButton();
     }
+    @Step("Ожидаем загрузки страницы link")
+    public void waitForPageLoad(String link){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.urlToBe(link));
+    }
+
 }
 

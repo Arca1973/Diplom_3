@@ -1,4 +1,4 @@
-package org.example.api;
+package com.stellarburgers.api;
 
 public class ServerResponseModel {
     public boolean success;

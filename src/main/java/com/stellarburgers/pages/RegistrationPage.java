@@ -1,11 +1,15 @@
-package pages;
+package com.stellarburgers.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class RegestrationPage {
-    public RegestrationPage(WebDriver driver) {
+import java.time.Duration;
+
+public class RegistrationPage {
+    public RegistrationPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -47,4 +51,11 @@ public class RegestrationPage {
     public boolean isWrongPasswordMessageDisplayed() {
         return driver.findElement(wrongPasswordMessage).isDisplayed();
     }
+
+    @Step("Ожидаем загрузки страницы link")
+    public void waitForPageLoad(String link){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.urlToBe(link));
+    }
+
 }

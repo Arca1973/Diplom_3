@@ -1,11 +1,11 @@
-package API;
+package com.stellarburgers.api;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import static API.ApiConstants.BASE_URL;
+import static com.stellarburgers.api.ApiConstants.BASE_URL;
 import static io.restassured.RestAssured.given;
 
 public abstract class BaseApiMethod {

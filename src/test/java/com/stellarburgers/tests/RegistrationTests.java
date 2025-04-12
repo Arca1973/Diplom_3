@@ -1,16 +1,17 @@
-package tests;
+package com.stellarburgers.tests;
 
-import API.UserApiMethod;
-import base.BaseTest;
+import com.stellarburgers.TestDataGenerator;
+import com.stellarburgers.api.UserApiMethod;
+import com.stellarburgers.base.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import pages.BurgerConstructorPage;
-import pages.RegestrationPage;
-import pages.LoginPage;
+import com.stellarburgers.pages.BurgerConstructorPage;
+import com.stellarburgers.pages.RegistrationPage;
+import com.stellarburgers.pages.LoginPage;
 
 
 public class RegistrationTests extends BaseTest {
@@ -21,7 +22,7 @@ public class RegistrationTests extends BaseTest {
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
     private LoginPage loginPage;
-    private RegestrationPage registrationPage;
+    private RegistrationPage registrationPage;
 
     @Before
     public void setUp() {
@@ -29,16 +30,16 @@ public class RegistrationTests extends BaseTest {
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
         loginPage = new LoginPage(driver);
-        registrationPage= new RegestrationPage(driver);
+        registrationPage= new RegistrationPage(driver);
         // Генерация уникальных имени, электронной почты и пароля
-        name = "ИВАН" + (int) (Math.random() * 1000000);
-        email = name + "@yandex.ru";
-        password = "1234" + (int) (Math.random() * 1000000);
+        name = TestDataGenerator.generateRandomName();
+        email = TestDataGenerator.generateRandomEmail();
+        password = TestDataGenerator.generateRandomPassword();
         wrong_password ="12345";
     }
     @Test
     @DisplayName("Проверяем возможность регистрации нового пользователя с паролем короче 6 символов")
-    @Description("Нажимаем кнопку Войти в аккаунт, Нажимаем кнопку Регистрация, запоняем поля формы регистраци name и email - валидными значениями, password - 12345, нажимаем кнопку Регистрация, проверяем что появляется сообщение Неверный пароль")
+    @Description("Нажимаем кнопку Войти в аккаунт, Нажимаем кнопку Регистрация, заполняем поля формы регистраци name и email - валидными значениями, password - 12345, нажимаем кнопку Регистрация, проверяем что появляется сообщение Неверный пароль")
     public void UnSuccessfulUserRegistrationWithWrongPasswordTest() {
         burgerConstructorPage.clickSingInButton();
         loginPage.clickRegistrationLink();
@@ -51,7 +52,7 @@ public class RegistrationTests extends BaseTest {
 
     @Test
     @DisplayName("Проверяем возможность регистрации нового пользователя при вводе валидных данных")
-    @Description("Нажимаем кнопку Войти в аккаунт, Нажимаем кнопку Регистрация, запоняем поля формы регистраци name, email и password - валидными значениями,  нажимаем кнопку Регистрация, проверяем что после успешной регистрации происходит переход на страницу конструктора бургеров")
+    @Description("Нажимаем кнопку Войти в аккаунт, Нажимаем кнопку Регистрация, заполняем поля формы регистраци name, email и password - валидными значениями,  нажимаем кнопку Регистрация, проверяем что после успешной регистрации происходит переход на страницу конструктора бургеров")
 
     public void SuccessfulUserRegistrationTest() {
         burgerConstructorPage.clickSingInButton();
@@ -60,8 +61,12 @@ public class RegistrationTests extends BaseTest {
         registrationPage.inputEmailField(email);
         registrationPage.inputPasswordField(password);
         registrationPage.clickRegistrationButton();
-        waitForPageLoad(LOGIN_PAGE_URL);
+        registrationPage.waitForPageLoad(LOGIN_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), LOGIN_PAGE_URL); //проверяем переход на страницу авторизации
+
+    }
+    @After
+    public void afterEach() {
         new UserApiMethod().killUser(email, password, name);
     }
 

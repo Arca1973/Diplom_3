@@ -1,14 +1,12 @@
-package base;
+package com.stellarburgers.base;
 
 import io.qameta.allure.Step;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.WebDriverFactory;
-import java.time.Duration;
+import com.stellarburgers.utils.WebDriverFactory;
+
+import static com.stellarburgers.api.ApiConstants.BASE_URL;
 
 public class BaseTest {
 
@@ -18,11 +16,6 @@ public class BaseTest {
     protected final String BURGER_CONSTRUCTOR_PAGE_URL = "https://stellarburgers.nomoreparties.site/";
     protected static WebDriver driver;
 
-    @Step("Ожидаем загрузки страницы link")
-    protected void waitForPageLoad(String link){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.urlToBe(link));
-    }
 
     @Before
     @Step("Выбираем броузер")
@@ -31,7 +24,7 @@ public class BaseTest {
         String browser = System.getProperty("browser", "yandex");
         driver = WebDriverFactory.createDriver(browser);
         driver.manage().window().maximize();
-        driver.get("https://stellarburgers.nomoreparties.site/");// URL тестового сервиса
+        driver.get(BASE_URL);// URL тестового сервиса
     }
 
     @After

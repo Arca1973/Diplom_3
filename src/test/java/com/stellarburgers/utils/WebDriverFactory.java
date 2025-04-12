@@ -1,4 +1,4 @@
-package utils;
+package com.stellarburgers.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;

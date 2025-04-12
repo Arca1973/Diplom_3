@@ -1,14 +1,17 @@
-package tests;
+package com.stellarburgers.tests;
 
-import API.UserApiMethod;
-import base.BaseTest;
+import com.stellarburgers.TestDataGenerator;
+import com.stellarburgers.api.UserApiMethod;
+import com.stellarburgers.base.BaseTest;
+import com.stellarburgers.pages.BurgerConstructorPage;
+import com.stellarburgers.pages.LoginPage;
+import com.stellarburgers.pages.PersonalAccountPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import pages.*;
 
 public class PersonalAccountNavigationTest extends BaseTest {
     private String name;
@@ -28,14 +31,14 @@ public class PersonalAccountNavigationTest extends BaseTest {
         loginPage = new LoginPage(driver);
         personalAccountPage = new PersonalAccountPage(driver);
         // Генерация уникальных имени, электронной почты и пароля
-        name = "ИВАН" + (int) (Math.random() * 1000000);
-        email = name + "@yandex.ru";
-        password = "1234" + (int) (Math.random() * 1000000);
+        name = TestDataGenerator.generateRandomName();
+        email = TestDataGenerator.generateRandomEmail();
+        password = TestDataGenerator.generateRandomPassword();
 
         new UserApiMethod().createUser(email, password, name); // Создаем пользователя
         burgerConstructorPage.clickSingInButton(); //Переход на страницу авторизации
         loginPage.fillLoginForm(email,password);
-        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL); //ожидамем возврат на старницу конструкотора
+        loginPage.waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL); //ожидамем возврат на старницу конструкотора
             }
 
     @Test
@@ -44,7 +47,7 @@ public class PersonalAccountNavigationTest extends BaseTest {
 
     public void ClickPersonalAccountTest() {
         burgerConstructorPage.clickAccountLink();
-        waitForPageLoad(USER_ACCOUNT_PAGE_URL);
+        burgerConstructorPage.waitForPageLoad(USER_ACCOUNT_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), USER_ACCOUNT_PAGE_URL); //проверяем переход на страницу "Личный кабинет"
     }
 
@@ -53,9 +56,9 @@ public class PersonalAccountNavigationTest extends BaseTest {
     @Description("нажимаем кнопку Конструктор, проверяем что происходит переход на страницу Конструктор")
     public void ClickConstructorTest() {
         burgerConstructorPage.clickAccountLink();
-        waitForPageLoad(USER_ACCOUNT_PAGE_URL);
+        burgerConstructorPage.waitForPageLoad(USER_ACCOUNT_PAGE_URL);
         personalAccountPage.clickConstructorLink();
-        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
+        personalAccountPage.waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "КОНСТРУКТОР"
     }
 
@@ -64,9 +67,9 @@ public class PersonalAccountNavigationTest extends BaseTest {
     @Description("нажимаем логотип Stellar Burgers, проверяем что происходит переход на страницу Конструктор")
     public void ClickLogoTest() {
         burgerConstructorPage.clickAccountLink();
-        waitForPageLoad(USER_ACCOUNT_PAGE_URL);
+        burgerConstructorPage.waitForPageLoad(USER_ACCOUNT_PAGE_URL);
         personalAccountPage.clickStellarBurgersLogo();
-        waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
+        personalAccountPage.waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), BURGER_CONSTRUCTOR_PAGE_URL); //проверяем переход на страницу "КОНСТРУКТОР"
     }
 
@@ -76,13 +79,13 @@ public class PersonalAccountNavigationTest extends BaseTest {
 
     public void ClickExitTest() {
         burgerConstructorPage.clickAccountLink();
-        waitForPageLoad(USER_ACCOUNT_PAGE_URL);
+        burgerConstructorPage.waitForPageLoad(USER_ACCOUNT_PAGE_URL);
         personalAccountPage.clickExitButton();
-        waitForPageLoad(LOGIN_PAGE_URL);
+        personalAccountPage.waitForPageLoad(LOGIN_PAGE_URL);
         Assert.assertEquals(driver.getCurrentUrl(), LOGIN_PAGE_URL); //проверяем переход на страницу "Личный кабинет"
     }
     @After
-    public void aftereach() {
+    public void afterEach() {
         new UserApiMethod().deleteUser(accessToken);
     }
 }
