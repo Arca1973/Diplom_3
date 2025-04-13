@@ -40,5 +40,4 @@ public class UserApiMethod extends BaseApiMethod {
         ACCESS_TOKEN  = responseData.accessToken;
         new UserApiMethod().deleteUser(ACCESS_TOKEN);
     }
-
 }

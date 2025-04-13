@@ -32,24 +32,6 @@ public abstract class BaseApiMethod {
                 .when()
                 .post(endpoint);
     }
-
-    public static Response sendGetRequest(String endpoint, String accessToken, String body) {
-        return given()
-                .spec(requestSpecification)
-                .header("Authorization", accessToken)
-                .body(body)
-                .when()
-                .get(endpoint);
-    }
-
-    public static Response sendPatchRequest(String endpoint, String accessToken, String body) {
-        return given()
-                .spec(requestSpecification)
-                .header("Authorization", accessToken)
-                .body(body)
-                .when()
-                .patch(endpoint);
-    }
 }
 
 
