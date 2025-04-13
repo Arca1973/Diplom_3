@@ -24,7 +24,7 @@ public abstract class BaseApiMethod {
                 .delete(endpoint);
     }
 
-    public static Response sendPostRequest(String endpoint, String accessToken, String body) {
+    public static Response sendPostRequest(String endpoint, String accessToken, Object body) {
         return given()
                 .spec(requestSpecification)
                 .header("Authorization", accessToken)

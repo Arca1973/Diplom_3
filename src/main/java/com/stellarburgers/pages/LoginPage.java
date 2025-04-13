@@ -18,7 +18,7 @@ public class LoginPage {
     private final By enterLink = By.xpath("//*[contains(text(), 'Войти')]"); //кнопка «Войти» на странице Авторизация,
     private static final By registrationLink = By.xpath("//*[contains(text(), 'Зарегистрироваться')]");//ссылка «Зарегистрироваться» на странице Авторизация
     private final By inputEmailField = By.xpath("//label[text()='Email']/following-sibling::input"); // поле ввода Email на странице Авторизация
-    private final By inputPasswordField = By.xpath("//label[text()='Пароль']/following-sibling::input"); // поле ввода Password на странице странице Авторизация // поле ввода Password
+    private final By inputPasswordField = By.xpath("//label[text()='Пароль']/following-sibling::input"); // поле ввода Password на странице Авторизация // поле ввода Password
 
 
 

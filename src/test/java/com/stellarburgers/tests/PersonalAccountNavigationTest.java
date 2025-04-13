@@ -35,11 +35,11 @@ public class PersonalAccountNavigationTest extends BaseTest {
         email = TestDataGenerator.generateRandomEmail();
         password = TestDataGenerator.generateRandomPassword();
 
-        new UserApiMethod().createUser(email, password, name); // Создаем пользователя
+        accessToken =new UserApiMethod().createUser(email, password, name); // Создаем пользователя
         burgerConstructorPage.clickSingInButton(); //Переход на страницу авторизации
         loginPage.fillLoginForm(email,password);
-        loginPage.waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL); //ожидамем возврат на старницу конструкотора
-            }
+        loginPage.waitForPageLoad(BURGER_CONSTRUCTOR_PAGE_URL); //ожидаем возврат на страницу конструктора
+    }
 
     @Test
     @DisplayName("Проверяем переход на страницу Личный кабинет с главной страницы после нажатия кнопки Личный кабинет")

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.example</groupId>
+    <groupId>org.example</groupId>
     <artifactId>Diplom</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -18,13 +18,19 @@
     </properties>
 
     <dependencies>
-
-    <!-- javafaker -->
-    <dependency>
-        <groupId>com.github.javafaker</groupId>
-        <artifactId>javafaker</artifactId>
-        <version>1.0.2</version>
-    </dependency>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version> <!-- Проверьте актуальную версию на сайте Lombok -->
+            <scope>provided</scope>
+        </dependency>
+        <!-- javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
         <!-- Основной артефакт RestAssured -->
         <dependency>
             <groupId>io.rest-assured</groupId>

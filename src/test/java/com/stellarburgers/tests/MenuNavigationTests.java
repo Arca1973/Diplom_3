@@ -12,6 +12,7 @@ import com.stellarburgers.pages.BurgerConstructorPage;
 public class MenuNavigationTests extends BaseTest {
     // Переменные для хранения экземпляров классов страниц
     private BurgerConstructorPage burgerConstructorPage;
+    Boolean sectionActive;
 
     @Before
     public void setUp() {
@@ -19,14 +20,24 @@ public class MenuNavigationTests extends BaseTest {
         // Инициализация экземпляров классов страниц
         burgerConstructorPage = new BurgerConstructorPage(driver);
     }
+    @Test
+    @DisplayName("Проверяем что в окне с ингредиентами становиться активным раздел  с булками после нажатия элемента Булки")
+    @Description("Нажимаем элемент Булки, проверяем что раздел булки активен")
+    public void BunsMenuNavigationTest () {
 
+        burgerConstructorPage.clickSaucesLink();
+        burgerConstructorPage.clickBunsLink();
+        sectionActive = burgerConstructorPage.isSectionActive("Булки");
+        Assert.assertTrue(sectionActive);
+    }
     @Test
     @DisplayName("Проверяем что в окне с ингредиентами  становиться активным раздел  с соусами после нажатия элемента Соусы")
     @Description("Нажимаем элемент Соусы, проверяем что раздел Соусы активен")
 
     public void SaucesMenuNavigationTest() {
         burgerConstructorPage.clickSaucesLink();
-        Assert.assertTrue(burgerConstructorPage.isSectionActive("Соусы"));
+        sectionActive = burgerConstructorPage.isSectionActive("Соусы");
+        Assert.assertTrue(sectionActive);
     }
 
     @Test
@@ -35,16 +46,7 @@ public class MenuNavigationTests extends BaseTest {
 
     public void FillingsMenuNavigationTest() {
         burgerConstructorPage.clickFillingsLink();
-        Assert.assertTrue(burgerConstructorPage.isSectionActive("Начинки"));
-    }
-
-    @Test
-    @DisplayName("Проверяем что в окне с ингредиентами становиться активным раздел  с булками после нажатия элемента Булки")
-    @Description("Нажимаем элемент Булки, проверяем что раздел будки активен")
-    public void BunsMenuNavigationTest () {
-
-        burgerConstructorPage.clickSaucesLink();
-        burgerConstructorPage.clickBunsLink();
-        Assert.assertTrue(burgerConstructorPage.isSectionActive("Булки"));
+        sectionActive = burgerConstructorPage.isSectionActive("Начинки");
+        Assert.assertTrue(sectionActive);
     }
 }

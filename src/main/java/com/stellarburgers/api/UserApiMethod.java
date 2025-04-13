@@ -1,28 +1,25 @@
 package com.stellarburgers.api;
 
-import com.google.gson.Gson;
+
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import static com.stellarburgers.api.ApiConstants.*;
 
 
 public class UserApiMethod extends BaseApiMethod {
-    private static final Gson gson = new Gson(); // Используем Gson для сериализации
 
    @Step("Запрос на создание пользователя")
     public String createUser(String email, String password, String name) {
-        UserModel.UserData userData = new UserModel.UserData(email, password, name);
-        String body = gson.toJson(userData);
-       Response response = sendPostRequest(CREATE_USER_ENDPOINT,"", body);
+       UserModel.UserData userData = new UserModel.UserData(email, password, name);
+       Response response = sendPostRequest(CREATE_USER_ENDPOINT,"", userData);
        var responseData = response.as(ServerResponseModel.class);
-       return responseData.accessToken;
+       return responseData.getAccessToken();
     }
 
     @Step("Запрос на авторизацию пользователя")
     public Response loginUser(String email, String password, String name) {
         UserModel.UserData userData = new UserModel.UserData(email, password, name);
-        String body = gson.toJson(userData);
-        return sendPostRequest(LOGIN_USER_ENDPOINT,"", body);
+        return sendPostRequest(LOGIN_USER_ENDPOINT,"", userData);
     }
 
 
@@ -37,7 +34,7 @@ public class UserApiMethod extends BaseApiMethod {
         String ACCESS_TOKEN;
         Response response = new UserApiMethod().loginUser(email, password, name);
         var responseData = response.as(ServerResponseModel.class);
-        ACCESS_TOKEN  = responseData.accessToken;
+        ACCESS_TOKEN  = responseData.getAccessToken();
         new UserApiMethod().deleteUser(ACCESS_TOKEN);
     }
 }
